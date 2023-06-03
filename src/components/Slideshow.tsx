@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion, Variants, useInView } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import {
     Box, Flex, Center, Stack,
     Container, Heading, Text,
@@ -23,34 +23,14 @@ import {
 export default function Slideshow() {
     const mobileLayout = useBreakpointValue({ base: true, sm: true, xl: false});
 
-    const headerContent: Variants = {
+    const headerVariants: Variants = {
         hidden: {
             x: -300,
             opacity: 0
         },
-        visibleHello: {
+        visible: {
             x: 0,
-            opacity: 1,
-            transition: {
-                delay: 0.5,
-                duration: 0.5
-            }
-        },
-        visibleName: {
-            x: 0,
-            opacity: 1,
-            transition: {
-                delay: 1.5,
-                duration: 2
-            }
-        },
-        visibleOther: {
-            x: 0,
-            opacity: 1,
-            transition: {
-                delay: 3,
-                duration: 2
-            }
+            opacity: 1
         }
     }
 
@@ -74,56 +54,62 @@ export default function Slideshow() {
                     maxWidth={{base: "75ch"}}
                     color="white" 
                     >
-                        <Stack
-                        as={motion.div}
-                        variants={headerContent}
+                        <motion.div
                         initial="hidden"
-                        animate="visibleHello"
-                        direction="row" 
-                        alignItems="center">
-                            <Text as="b" fontSize={mobileLayout ? "4xl" : "5xl"}> 
-                                Hello!
-                            </Text>
+                        animate="visible"
+                        >
                             <motion.div
-                            animate={{ rotate: -30 }}
-                            transition={{ duration: 0.2, repeat: Infinity, repeatType: "reverse"}}>
-                                <MdWavingHand size="3em"/>
+                            variants={headerVariants}
+                            transition={{delay: 0.5, duration: 0.5}}
+                            >
+                                <Stack
+                                direction="row" 
+                                alignItems="center">
+                                    <Text as="b" fontSize={mobileLayout ? "4xl" : "5xl"}> 
+                                        Hello!
+                                    </Text>
+                                    <motion.div
+                                    animate={{ rotate: -30 }}
+                                    transition={{ duration: 0.2, repeat: Infinity, repeatType: "reverse"}}>
+                                        <MdWavingHand size="3em"/>
+                                    </motion.div>
+                                </Stack>
                             </motion.div>
-                        </Stack>
 
-                        <Text
-                        as={motion.div}
-                        variants={headerContent}
-                        initial="hidden"
-                        animate="visibleName"
-                        fontWeight="bold"  
-                        fontSize={mobileLayout ? "2xl" : "5xl"}> 
-                            I'm Kevin Abelgas
-                        </Text>
+                            <motion.div
+                            variants={headerVariants}
+                            transition={{ delay: 1.5, duration: 2 }}
+                            >
+                                <Text                            
+                                fontWeight="bold"  
+                                fontSize={mobileLayout ? "2xl" : "5xl"}> 
+                                    I'm Kevin Abelgas
+                                </Text>
+                            </motion.div>
 
-                        <Text
-                        as={motion.div}
-                        variants={headerContent}
-                        initial="hidden"
-                        animate="visibleOther" 
-                        fontSize={{base: "md", sm: "xl"}}>
-                            An aspiring web developer and current student of De La Salle 
-                            University taking up BS Computer Science - Software Technology. 
-                        </Text>
-                        <Button
-                        as={motion.button}
-                        variants={headerContent}
-                        initial="hidden"
-                        animate="visibleOther" 
-                        size={{base: "xs", md: "md"}}
-                        mt={5}
-                        color="white"
-                        bg="#4D194D"
-                        _hover={{bg: "#212F45"}}
-                        _active={{color: "#a2d2ff"}}
-                        > 
-                            View Projects
-                        </Button>
+                            <motion.div
+                            variants={headerVariants}
+                            transition={{ delay: 3, duration: 2 }}
+                            >
+                                <Text
+                                fontSize={{base: "md", sm: "xl"}}>
+                                    An aspiring web developer and current student of De La Salle 
+                                    University taking up BS Computer Science - Software Technology. 
+                                </Text>
+
+                                <Button
+                                size={{base: "xs", md: "md"}}
+                                mt={5}
+                                color="white"
+                                bg="#4D194D"
+                                _hover={{bg: "#212F45"}}
+                                _active={{color: "#a2d2ff"}}
+                                > 
+                                    View Projects
+                                </Button>
+                            </motion.div>
+                        </motion.div>
+
                     </Container>
                 </Box>
             </Flex>
