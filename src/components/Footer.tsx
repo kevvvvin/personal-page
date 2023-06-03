@@ -18,13 +18,15 @@ export default function Footer() {
 
     return (
         <Box
-        color="white"
+        outline="solid 1px"
+        color="whiteAlpha.200"
         bgColor="#006466"
         h="200px"
         w="100%"
         px={{base: "0.5em", sm: "2em", md: "5em"}}
         py={10}
-        >
+        > 
+            <Box color="white">
                 <Text fontSize="xs" mt={2}> Email: kevin_abelgas@dlsu.edu.ph </Text>
                 <Divider orientation="horizontal" mt={8} size="20px"/>
                 <HStack spacing={5} mt={2}>
@@ -32,7 +34,7 @@ export default function Footer() {
                     <ChatIcon boxSize={{base: ".8em", sm: "1em", md: "1.2em"}}/>
                     <EmailIcon boxSize={{base: ".8em", sm: "1em", md: "1.2em"}}/>
                 </HStack>
-
+            </Box>
         </Box>
     );
 }

@@ -31,6 +31,7 @@ export default function NavBar() {
 
     return (
     <Box
+    position="fixed"
     outline="solid 1px"
     color="whiteAlpha.200"
     w="100%" 
@@ -39,7 +40,7 @@ export default function NavBar() {
     zIndex={99}>
         
         <Flex
-        bgColor="#4D194D"
+        bgColor="whiteAlpha.200"
         gap={mobileNavBar ? "0" : "5"}
         alignItems="center"
         justifyContent={mobileNavBar ? "center" : ""}
@@ -53,7 +54,7 @@ export default function NavBar() {
                     <Button 
                     color="white"
                     h="inherit" 
-                    bg="inherit"
+                    bg="transparent"
                     _hover={{color: "#3f8efc"}}
                     _active={{color: "#ABC4FF"}}> 
                         About
@@ -62,7 +63,7 @@ export default function NavBar() {
                     <Button
                     color="white"
                     h="inherit" 
-                    bg="inherit"
+                    bg="transparent"
                     _hover={{color: "#3f8efc"}}
                     _active={{color: "#ABC4FF"}}> 
                         Projects
@@ -71,7 +72,7 @@ export default function NavBar() {
                     <Button
                     color="white"
                     h="inherit"
-                    bg="inherit"
+                    bg="transparent"
                     _hover={{color: "#3f8efc"}}
                     _active={{color: "#ABC4FF"}}> 
                         Contact 
