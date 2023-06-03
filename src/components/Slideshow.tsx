@@ -4,8 +4,9 @@ import {
     Box, Flex, Center, Stack,
     Container, Heading, Text,
     Card, CardHeader, CardBody, CardFooter,
-    Button, Tooltip,
-    useBreakpointValue,
+    Button, Link, Tooltip,
+    useBreakpointValue, Image,
+    Spacer, 
 } from '@chakra-ui/react';
 
 import { 
@@ -19,6 +20,11 @@ import {
     DiGithubBadge, DiFirebase, DiCss3,
     DiVisualstudio, DiWindows, DiTrello,
 } from 'react-icons/di'
+
+import { 
+    TbBrandNextjs, TbBrandFirebase, TbBrandReact,
+    TbBrandTailwind,
+} from 'react-icons/tb'
 
 export default function Slideshow() {
     const mobileLayout = useBreakpointValue({ base: true, sm: true, xl: false});
@@ -44,7 +50,7 @@ export default function Slideshow() {
         pt="11em"
         gap="9em"
         >
-            <Flex direction="row">
+            <Flex direction={mobileLayout ? "column" : "row"} alignItems="center">
                 <Box 
                 h="fit-content"
                 w="inherit"
@@ -97,21 +103,43 @@ export default function Slideshow() {
                                     University taking up BS Computer Science - Software Technology. 
                                 </Text>
 
-                                <Button
-                                size={{base: "xs", md: "md"}}
-                                mt={5}
-                                color="white"
-                                bg="#4D194D"
-                                _hover={{bg: "#212F45"}}
-                                _active={{color: "#a2d2ff"}}
-                                > 
-                                    View Projects
-                                </Button>
+                                <Stack direction="row" my={5}>
+                                    <Button
+                                    size={{base: "xs", md: "md"}}
+                                    color="white"
+                                    bg="#4D194D"
+                                    _hover={{bg: "#212F45"}}
+                                    _active={{color: "#a2d2ff"}}
+                                    > 
+                                        View Projects
+                                    </Button>
+
+                                    <Button
+                                    as={Link}
+                                    href="https://github.com/kevvvvin"
+                                    size={{base: "xs", md: "md"}}
+                                    color="white"
+                                    rightIcon={<DiGithubBadge size="1.5em" />}
+                                    bg="#4D194D"
+                                    _hover={{bg: "#212F45", textDecoration: "none"}}
+                                    _active={{color: "#a2d2ff"}}
+                                    isExternal
+                                    > 
+                                        View GitHub
+                                    </Button>
+                                </Stack>
                             </motion.div>
                         </motion.div>
 
                     </Container>
                 </Box>
+
+                <motion.div
+                animate={{opacity: [0, 1]}}
+                transition={{delay: 5, duration : 2}}
+                >
+                    <Image src="https://dummyimage.com/600x600/5a3485/ebebeb" objectFit="cover"/>
+                </motion.div>
             </Flex>
 
             <Center
@@ -130,15 +158,25 @@ export default function Slideshow() {
                 w="inherit"
                 color="white"
                 as={motion.div}
-                initial={{ x: -300, opacity: 0}}
+                initial={{ x: -50, opacity: 0}}
                 whileInView={{ x: 0, opacity: 1, duration: 2}}
                 
                 >
                     <Container
                     alignItems="center"
-                    maxWidth="75ch"
+                    maxWidth="120ch"
                     >
                         <Heading as="h1" size={mobileLayout ? "xl" : "2xl"}> About </Heading>
+                        <Text py={5} fontSize={{base: "md", sm: "xl"}}> 
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                            Enim nec dui nunc mattis enim ut tellus elementum. Lorem ipsum 
+                            dolor sit amet consectetur adipiscing elit. Pharetra et ultrices 
+                            neque ornare. Faucibus turpis in eu mi bibendum. Et malesuada 
+                            fames ac turpis egestas maecenas pharetra. Arcu odio ut sem nulla 
+                            pharetra diam sit amet. Sapien faucibus et molestie ac feugiat sed 
+                            lectus. Maecenas volutpat blandit aliquam etiam erat.
+                        </Text>
                     </Container>
                     
                 </Box>
@@ -149,7 +187,7 @@ export default function Slideshow() {
                 w="inherit"
                 color="white"
                 as={motion.div}
-                initial={{ x: -300, opacity: 0}}
+                initial={{ x: -50, opacity: 0}}
                 whileInView={{ x: 0, opacity: 1 }}
                 >
                     <Container
@@ -243,27 +281,172 @@ export default function Slideshow() {
                 </Box>
             </Flex>
 
-            <Flex direction="row">
+            <Flex direction="column">
                 <Box
-                w="inherit"
                 color="white"
-                as={motion.div}
-                initial={{ x: -300, opacity: 0}}
-                whileInView={{ x: 0, opacity: 1, duration: 2}}
-                
+                w="inherit"
+                pl={5}
                 >
-                    <Container
-                    alignItems="center"
-                    maxWidth="75ch"
-                    >
+                    <motion.div
+                    initial={{ x: -50, opacity: 0}}
+                    whileInView={{ x: 0, opacity: 1, duration: 2}}>
                         <Heading as="h1" size={mobileLayout ? "xl" : "2xl"}> Projects </Heading>
-                        <Card>
-                            <CardBody>
-                                <Text fontSize="lg"> FaceGram </Text>
-                            </CardBody>
-                        </Card>
-                    </Container>
-                    
+                    </motion.div>
+                        
+                        <Flex
+                        as={motion.div}
+                        justifyContent="center"
+                        initial={{ x: 50, opacity: 0}}
+                        whileInView={{ x: 0, opacity: 1, transition: {duration: 2} }}
+                        mt={10}
+                        >
+                            <Card color="white" bg="whiteAlpha.200" my={5}>
+                                <CardHeader pb={0}>
+                                    <Flex direction="row" alignItems="center">
+                                        <Tooltip
+                                        hasArrow
+                                        label="Link unavailable. The GitHub repository is
+                                        currently private."
+                                        placement="top">
+                                            <Heading as="h2" fontSize="3xl"> FaceGram </Heading>
+                                        </Tooltip>
+                                        <Spacer/>
+                                        <Tooltip
+                                        hasArrow
+                                        label="Firebase, React, NextJS, TailwindCSS"
+                                        placement="top">
+                                            <Flex>
+                                                <TbBrandFirebase size="2em"/>
+                                                <TbBrandReact size="2em"/>
+                                                <TbBrandNextjs size="2em"/>
+                                                <TbBrandTailwind size="2em"/>
+                                            </Flex>
+                                        </Tooltip>
+                                    </Flex>
+                                </CardHeader>
+                                <CardBody>
+                                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center">
+                                        <Text fontSize={{base: "md", sm: "xl"}}>
+                                            <Container
+                                            alignItems="center"
+                                            maxWidth="60ch"
+                                            >
+                                                FaceGram is an Instagram clone developed in partial fulfillment of STSWENG.
+                                                I worked as a developer in a team and focused mainly on backend functionality
+                                                such as a like & follow system and other features, and connecting them to the
+                                                database and the frontend.
+                                            </Container>
+                                        </Text>
+
+                                        <Image src="facegram-prev.png" w="600px" h="300px" borderRadius={10}/>
+                                    </Flex>
+                                </CardBody>
+                            </Card>
+                        </Flex>
+
+                        <Flex
+                        as={motion.div}
+                        justifyContent="center"
+                        initial={{ x: -50, opacity: 0}}
+                        whileInView={{ x: 0, opacity: 1, transition: {duration: 2}}}
+                        mt={10}
+                        >
+                            <Card color="white" bg="whiteAlpha.200" my={5}>
+                                <CardHeader pb={0}>
+                                    <Flex direction="row" alignItems="center">
+                                        <Tooltip
+                                        hasArrow
+                                        label="Link unavailable. The GitHub repository is
+                                        currently private."
+                                        placement="top">
+                                            <Heading as="h2" fontSize="3xl"> Lorem ipsum </Heading>
+                                        </Tooltip>
+                                        <Spacer/>
+                                        <Tooltip
+                                        hasArrow
+                                        label="Firebase, React, NextJS, TailwindCSS"
+                                        placement="top">
+                                            <Flex>
+                                                <TbBrandFirebase size="2em"/>
+                                                <TbBrandReact size="2em"/>
+                                                <TbBrandNextjs size="2em"/>
+                                                <TbBrandTailwind size="2em"/>
+                                            </Flex>
+                                        </Tooltip>
+                                    </Flex>
+                                </CardHeader>
+                                <CardBody>
+                                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center">
+                                        <Image src="facegram-prev.png" w="600px" h="300px" borderRadius={10}/>
+
+                                        <Text fontSize={{base: "md", sm: "xl"}}>
+                                            <Container
+                                            alignItems="center"
+                                            maxWidth="60ch"
+                                            >
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                                Enim nec dui nunc mattis enim ut tellus elementum. Lorem ipsum 
+                                                dolor sit amet consectetur adipiscing elit. Pharetra et ultrices 
+                                                neque ornare. Faucibus turpis in eu mi bibendum.
+                                            </Container>
+                                        </Text>
+                                    </Flex>
+                                </CardBody>
+                            </Card>
+                        </Flex>
+
+                        <Flex
+                        as={motion.div}
+                        justifyContent="center"
+                        initial={{ x: 50, opacity: 0}}
+                        whileInView={{ x: 0, opacity: 1, transition: {duration: 2}}}
+                        mt={10}
+                        >
+                            <Card color="white" bg="whiteAlpha.200" my={5}>
+                                <CardHeader pb={0}>
+                                    <Flex direction="row" alignItems="center">
+                                        <Tooltip
+                                        hasArrow
+                                        label="Link unavailable. The GitHub repository is
+                                        currently private."
+                                        placement="top">
+                                            <Heading as="h2" fontSize="3xl"> Lorem ipsum </Heading>
+                                        </Tooltip>
+                                        <Spacer/>
+                                        <Tooltip
+                                        hasArrow
+                                        label="Firebase, React, NextJS, TailwindCSS"
+                                        placement="top">
+                                            <Flex>
+                                                <TbBrandFirebase size="2em"/>
+                                                <TbBrandReact size="2em"/>
+                                                <TbBrandNextjs size="2em"/>
+                                                <TbBrandTailwind size="2em"/>
+                                            </Flex>
+                                        </Tooltip>
+                                    </Flex>
+                                </CardHeader>
+                                <CardBody>
+                                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center">
+                                        <Text fontSize={{base: "md", sm: "xl"}}>
+                                            <Container
+                                            alignItems="center"
+                                            maxWidth="60ch"
+                                            >
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
+                                                do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                                Enim nec dui nunc mattis enim ut tellus elementum. Lorem ipsum 
+                                                dolor sit amet consectetur adipiscing elit. Pharetra et ultrices 
+                                                neque ornare. Faucibus turpis in eu mi bibendum.
+                                            </Container>
+                                        </Text>
+
+                                        <Image src="facegram-prev.png" w="600px" h="300px" borderRadius={10}/>
+                                    </Flex>
+                                </CardBody>
+                            </Card>
+                        </Flex>
                 </Box>
             </Flex>
 

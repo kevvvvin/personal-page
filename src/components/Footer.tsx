@@ -13,6 +13,8 @@ import {
     HStack,
 } from '@chakra-ui/react';
 
+import { DiGithubBadge } from 'react-icons/di'
+
 
 export default function Footer() {
 
@@ -30,9 +32,10 @@ export default function Footer() {
                 <Text fontSize="xs" mt={2}> Email: kevin_abelgas@dlsu.edu.ph </Text>
                 <Divider orientation="horizontal" mt={8} size="20px"/>
                 <HStack spacing={5} mt={2}>
-                    <PhoneIcon boxSize={{base: ".8em", sm: "1em", md: "1.2em"}}/>
-                    <ChatIcon boxSize={{base: ".8em", sm: "1em", md: "1.2em"}}/>
-                    <EmailIcon boxSize={{base: ".8em", sm: "1em", md: "1.2em"}}/>
+                    <PhoneIcon boxSize={{base: "8em", md: "2em"}}/>
+                    <ChatIcon boxSize={{base: ".8em", md: "2em"}}/>
+                    <EmailIcon boxSize={{base: ".8em", md: "2em"}}/>
+                    <DiGithubBadge size="1.5rem"/>
                 </HStack>
             </Box>
         </Box>
