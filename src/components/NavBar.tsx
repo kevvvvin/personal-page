@@ -2,12 +2,9 @@ import { useState, useEffect } from 'react';
 import {
     Box, 
     Flex,
-    Spacer, 
-    Image, 
     Button,
     Collapse,
     useBreakpointValue,
-    Text,
     IconButton,
     Stack,
 } from '@chakra-ui/react';
@@ -18,7 +15,6 @@ export default function NavBar() {
     const mobileNavBar = useBreakpointValue({ base: true, sm: true, md: false})
 
     const [ showMenu, setShowMenu ] = useState(false);
-
 
     const toggleMenu = () => {
         setShowMenu(!showMenu)

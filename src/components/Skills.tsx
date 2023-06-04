@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+// import { useState, useEffect, useRef } from 'react';
+// import { motion } from 'framer-motion';
 import {
-    Box, Flex, Stack, Heading, Tooltip, Text, Spacer, Container
+    Flex, Heading, Tooltip, Spacer, Container
 } from '@chakra-ui/react';
 
 
@@ -23,7 +23,7 @@ export default function Skills({mobileLayout}: SkillsProps) {
         <Flex 
         direction="column" 
         color="white" 
-        mb={mobileLayout ? 0 : 20}
+        my={mobileLayout ? 0 : 20}
         >
             <Container
             maxWidth={{base: "75ch", lg: "none"}}
@@ -38,7 +38,7 @@ export default function Skills({mobileLayout}: SkillsProps) {
                 my={10}
                 wrap={mobileLayout ? "wrap" : "nowrap"}
                 >
-                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center" wrap="wrap">
+                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center" wrap="wrap" gap={2}>
                         <Tooltip label="HTML5" placement="top" fontSize="md">
                             <span>
                                 <SiHtml5 size="4em"/>
@@ -76,7 +76,7 @@ export default function Skills({mobileLayout}: SkillsProps) {
                         </Tooltip>
                     </Flex>
 
-                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center" wrap="wrap">
+                    <Flex direction={mobileLayout ? "column" : "row"} alignItems="center" wrap="wrap" gap="4em">
                         <Spacer/>
                         <Tooltip label="TypeScript" placement="top" fontSize="md">
                             <span>
@@ -152,7 +152,8 @@ export default function Skills({mobileLayout}: SkillsProps) {
                     direction={mobileLayout ? "column" : "row"}
                     justifyContent="center"
                     alignItems="center"  
-                    wrap="wrap">
+                    wrap="wrap"
+                    gap="4em">
                         <Spacer/>
                         <Tooltip label="Firebase" placement="top" fontSize="md">
                             <span>

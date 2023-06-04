@@ -1,12 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, Variants, useInView } from 'framer-motion';
+// import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+// import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import {
-    Flex, Center, useBreakpointValue, Spacer, 
+    Flex, useBreakpointValue
 } from '@chakra-ui/react';
-
-import { 
-    MdKeyboardDoubleArrowDown 
-} from 'react-icons/md'
 
 import Header from './Header';
 import About from './About';
@@ -23,27 +19,12 @@ export default function Slideshow() {
         w="100%"
         h="fit-content"
         px={{base: "0", lg: "15em"}}
-        pt="11em"
-        gap="9em"
+        pt="2.5em"
+        gap="5em"
         >
-            <Header mobileLayout={mobileLayout}/>
 
-            <Center
-            as={motion.div}
-            animate={{
-                y: [-5, 5], 
-                transition: {
-                    duration: 0.5, 
-                    repeat: Infinity, 
-                    repeatType: "reverse"
-                }
-            }}
-            h="fit-content"
-            >
-                <MdKeyboardDoubleArrowDown size="2em" color="white"/>
-            </Center>
-    
-            <About mobileLayout={mobileLayout}/>            
+            <Header mobileLayout={mobileLayout}/>            
+            <About mobileLayout={mobileLayout}/>
             <Skills mobileLayout={mobileLayout}/>
             <Projects mobileLayout={mobileLayout}/>
         </Flex>

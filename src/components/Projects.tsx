@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+// import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
     Box, Flex, Container, Heading, Text,
     Card, CardHeader, CardBody, CardFooter,
-    Tooltip, Image, Spacer, AspectRatio
+    Tooltip, Image, Spacer,
 } from '@chakra-ui/react';
 
 import { 
@@ -20,6 +20,7 @@ export default function Footer({mobileLayout}: FooterProps) {
 
     return (
         <Flex direction="column"
+        my={mobileLayout ? 0 : 20}
         >
             <Box color="white">
                 <Container

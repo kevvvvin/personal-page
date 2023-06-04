@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, Variants, useInView } from 'framer-motion';
+// import { useState, useEffect, useRef } from 'react';
+import { motion, Variants } from 'framer-motion';
 import {
     Box, Flex, Stack,
     Container, Text, Button, 
-    Link, Image, Spacer, 
+    Link, Image, 
 } from '@chakra-ui/react';
 
 import { 
@@ -30,12 +30,12 @@ export default function Header({mobileLayout}: HeaderProps ) {
     }
 
     return (
-        <Flex direction={mobileLayout ? "column" : "row"} alignItems="center">
-            <Box 
-            h="fit-content"
-            w="inherit"
-            pt={10} 
-            >
+        <Flex 
+        direction={mobileLayout ? "column" : "row"} 
+        alignItems="center" 
+        h={{xl: "900px"}}
+        pt={mobileLayout ? 5 : 0}> 
+            <Box>
                 <Container
                 maxWidth={{base: "75ch"}}
                 color="white" 
@@ -68,7 +68,7 @@ export default function Header({mobileLayout}: HeaderProps ) {
                         >
                             <Text                            
                             fontWeight="bold"  
-                            fontSize={mobileLayout ? "2xl" : "5xl"}> 
+                            fontSize={mobileLayout ? "2xl" : "4xl"}> 
                                 I'm Kevin Abelgas
                             </Text>
                         </motion.div>
@@ -113,8 +113,6 @@ export default function Header({mobileLayout}: HeaderProps ) {
 
                 </Container>
             </Box>
-
-            <Spacer/>
 
             <Box p={5}>
                 <motion.div

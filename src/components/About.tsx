@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+// import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import {
     Box, Flex, Container, Heading, Text, Image, Spacer
@@ -14,7 +14,7 @@ export default function About({mobileLayout} : AboutProps) {
         <Flex 
         direction={mobileLayout ? "column" : "row"}
         alignItems="center"
-        mb={mobileLayout ? 0 : 20}
+        my={mobileLayout ? 0 : 20}
         >
             <Container
             maxWidth={{base: "75ch", lg: "120ch"}}
@@ -23,7 +23,7 @@ export default function About({mobileLayout} : AboutProps) {
                 <motion.div
                 initial={{ x: -50, opacity: 0}}
                 whileInView={{ x: 0, opacity: 1, transition: {duration: 2} }}
-                viewport={{once: true}}
+                viewport={{once: true, margin: "-200px 0px 0px 0px"}}
                 >
                     <Heading as="h1" size={mobileLayout ? "xl" : "2xl"}> About Me </Heading>
                 </motion.div>
@@ -31,7 +31,7 @@ export default function About({mobileLayout} : AboutProps) {
                 <motion.div
                 initial={{ x: -50, opacity: 0}}
                 whileInView={{ x: 0, opacity: 1, transition: {delay: 1.5, duration: 2} }}
-                viewport={{once: true}}
+                viewport={{once: true, margin: "-200px 0px 0px 0px"}}
                 >
                     <Text py={5} fontSize={{base: "md", sm: "xl"}}> 
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed 
@@ -45,8 +45,6 @@ export default function About({mobileLayout} : AboutProps) {
                     </Text>
                 </motion.div>
             </Container>
-
-            <Spacer/>
                 
             <Box p={5}>
                 <motion.div
